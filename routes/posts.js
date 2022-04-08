@@ -51,4 +51,20 @@ router.delete('/',async (req,res) => {
     }
 });
 
+router.put("/:id", (req, res, next) => {
+    return Post.updateOne(
+      { _id: req.params.id },  // <-- find stage
+      { $set: {                // <-- set stage
+         id: req.body.id,     // <-- id not _id
+         title: req.body.title,
+         description: req.body.description
+        } 
+      }   
+    ).then(result => {
+      res.status(200).json({ message: "Update successful!" });
+    });
+  });
+
+
+
 module.exports=router;
