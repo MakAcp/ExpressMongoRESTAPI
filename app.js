@@ -1,6 +1,6 @@
 const express = require('express');
 const res = require('express/lib/response');
-const sendmail = require("@sendgrid/mail");
+
 const mongoose = require('mongoose');
 const app= express();
 const bodyparser=require('body-parser');
@@ -28,17 +28,8 @@ app.get('/',(req,res) => {
 });
 
 
-const API_KEY= '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'
-sendmail.setApiKey(API_KEY);
-const message={
-    to: "2017.nihar.kalsekar@ves.ac.in",
-    from: "nihar.kalsekar@gmail.com",
-    subject:"seding u love",
-    text:"lol trolled",
-    html:'<h1>lol trolled</h1>',
-};
-sendmail.send(message)
-.then(response=> console.log('Email sent...'))
+
+
 
 
 

@@ -1,7 +1,8 @@
 const express=require('express');
 const router=express.Router();
 const Post= require('../models/Post');
-
+const sendmail = require("@sendgrid/mail");
+sendmail.setApiKey('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');
 router.get('/',async (req,res) => {
     try{
         const posts=await Post.find();
@@ -23,10 +24,24 @@ router.post('/',(req,res) => {
     post.save()
         .then(data => {
             res.json(data);
+            const message={
+                to: "2017.nihar.kalsekar@ves.ac.in",
+                from: "nihar.kalsekar@gmail.com",
+                subject:"seding u love",
+                text:"lol trolled",
+                html:'<h1>lol trolled</h1>',
+            };
+            sendmail.send(message)
+            .then(response=> console.log('Email sent...'));
         })
         .catch(err=> {
             res.json({message:err});
         })
+
+       
+   
+      
+       
 
 });
 
