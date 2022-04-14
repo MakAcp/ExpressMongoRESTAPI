@@ -25,8 +25,8 @@ router.post('/',(req,res) => {
         .then(data => {
             res.json(data);
             const message={
-                to: "2017.nihar.kalsekar@ves.ac.in",
-                from: "nihar.kalsekar@gmail.com",
+                to: "",
+                from: "",
                 subject:"seding u love",
                 text:"lol trolled",
                 html:'<h1>lol trolled</h1>',
