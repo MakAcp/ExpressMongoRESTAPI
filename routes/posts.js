@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 const Post= require('../models/Post');
 const sendmail = require("@sendgrid/mail");
-sendmail.setApiKey('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');
+sendmail.setApiKey();
 router.get('/',async (req,res) => {
     try{
         const posts=await Post.find();
