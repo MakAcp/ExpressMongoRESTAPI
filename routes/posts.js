@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 const Post= require('../models/Post');
 const sendmail = require("@sendgrid/mail");
-sendmail.setApiKey();
+sendmail.setApiKey('');
 router.get('/',async (req,res) => {
     try{
         const posts=await Post.find();
@@ -27,9 +27,9 @@ router.post('/',(req,res) => {
             const message={
                 to: "",
                 from: "",
-                subject:"seding u love",
-                text:"lol trolled",
-                html:'<h1>lol trolled</h1>',
+                subject:"",
+                text:"",
+                html:'<h1></h1>',
             };
             sendmail.send(message)
             .then(response=> console.log('Email sent...'));
